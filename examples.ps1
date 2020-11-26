@@ -40,7 +40,7 @@ Get-ChildItem $a |
     Sort-Object Length –Descending
 
 pause
-Write-Output " Write from arrey"
+Write-Output " Write data from arrey"
 $a = 1,2,3,4,5; $b = $a[4];
 Write-Host $b
 
