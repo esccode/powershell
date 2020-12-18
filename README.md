@@ -11,6 +11,7 @@ Get-Command pi*
 Get-Command -Verb get
 Get-Command -Noun Computer
 Get-Command -Name *Computer*
+Get-Command -Module NetTCPIP -Name *IP*
 
 Get-Verb
 Get-Verb | Select-Object group -Unique
