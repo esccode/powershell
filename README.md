@@ -34,3 +34,5 @@ end
 
 ## Get-Alias
 Get-Alias -Definition Get-ChildItem
+Set-Alias no notepad
+New-Alias no notepad
