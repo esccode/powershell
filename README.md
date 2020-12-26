@@ -33,3 +33,4 @@ home
 end
 
 ## Get-Alias
+Get-Alias -Definition Get-ChildItem
