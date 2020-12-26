@@ -20,7 +20,7 @@ Get-Command -Module NetTCPIP -Name *IP*
 
 ## Get-Process
 Get-Process notepad
-Stop-Process -id xxx
+Stop-Process -id xxx -WhatIf/-Confirm
 
 ## Get-Verb
 Get-Verb
