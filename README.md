@@ -31,3 +31,5 @@ Ctrl space
 delate
 home
 end
+
+# Get-Alias
