@@ -4,6 +4,9 @@ powershell scripts
 ctrl j
 Get-Service 'name' > service.txt
 
+Update-Help -Verbose -Force -ErrorAction SilentlyContinue
+
+Get-Help about_CommonParameters -ShowWindow
 Get-Help Get-Command -Examples
 Get-Help Get-Command -ShowWindow
 Get-Help Get-Command -Online
