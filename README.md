@@ -34,6 +34,9 @@ end
 
 ## Get-Alias
 
+Get-Location
+Get-Service | where status -eq 'running' | Out-File C:\Users\jacek\OneDrive\Desktop\service-running.csv
+
 Get-Alias -Definition Get-ChildItem
 Set-Alias no notepad
 New-Alias no notepad
