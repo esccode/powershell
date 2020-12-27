@@ -34,5 +34,11 @@ end
 
 ## Get-Alias
 Get-Alias -Definition Get-ChildItem
+
+## Get-History
+history | Select-String Get
+
+
+
 Set-Alias no notepad
 New-Alias no notepad
