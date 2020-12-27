@@ -49,4 +49,4 @@ Get-Service | Sort-Object Status | Format-Table Name, Status
 1,2,3 | ForEach-Object {$_}
 
 
-
+# pliki
