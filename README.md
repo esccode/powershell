@@ -45,7 +45,7 @@ Get-History | Format-List -Property *
 ## Potoki
 zbieranie | sortowanie | wyswietlanie
 Get-Service | Sort-Object Status | Format-Table Name, Status
-
+1,2,3 | ForEach-Object {$PSItem}
 
 
 
