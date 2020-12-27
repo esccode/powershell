@@ -33,12 +33,19 @@ home
 end
 
 ## Get-Alias
+
 Get-Alias -Definition Get-ChildItem
+Set-Alias no notepad
+New-Alias no notepad
 
 ## Get-History
 history | Select-String Get
+Get-History | Format-List -Property *
+
+## Potoki
+zbieranie | sortowanie | wyswietlanie
+Get-Service | Sort-Object Status | Format-Table Name, Status
 
 
 
-Set-Alias no notepad
-New-Alias no notepad
+
