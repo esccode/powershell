@@ -58,3 +58,5 @@ Get-Service | where status -eq 'stopped' > C:\Users\jacek\OneDrive\Desktop\servi
 Get-ChildItem c:\Test -Filter *.txt | Select-Object Name, LastWriteTime,LastAccessTime,Length | Sort length -Descending | Export-Csv c:\Test\pliki.csv -Delimiter ';'
 Import-Csv .\service.csv
 (Import-Csv .\cennik-netia.csv).Prefix
+cat .\prefix.csv -First 10
+cat .\prefix.csv -Last 10
