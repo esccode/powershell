@@ -153,4 +153,48 @@ $liczby.add(‘11’)
 ## Usuwa element tablicy (jeżeli tablica jest odpowiedniego typu)
 $liczby.Remove('1')  					
 ## Tworzy tablicę typy ArrayList, do któej można dodawać i usuwać elementy
-[System.Collections.ArrayList]$liczby_zmienna=1..10			
+[System.Collections.ArrayList]$liczby_zmienna=1..10		
+
+# Tablice skrotow
+
+## Deklaracja tablicy skrótów
+$wiek = @{}
+## Deklaracja tablicy skrótów z elementami
+$w iek=@{Adam=30;Zosia=25}
+## Deklaracja tablicy skrótów z elementami w wielu wierszach
+$wiek=@{								
+Adam=30
+Zosia=25
+Tomek=34}
+## Dodanie pary danych do tablicy
+$wiek.add(‘Ola’,50)	
+## Dodanie pary danych do tablicy (ze zmiennych)
+$imie=Alek; $w=10; $wiek.add($imie,$wiek)
+## Dodanie pary danych do tablicy
+$wiek[Natalia]=28	
+## Dodanie pary danych do tablicy
+$wiek=$wiek+@{Magda=23}							
+## Wyświetlenie konkretej wartości dla klucza Ola
+$wiek[‘Ola’]	
+## Wyświetlenie konkretej wartości dla klucza Ola i Adam
+$wiek[‘Ola’,’Adam’]
+## Wyświetlenie konkretej wartości dla klucza Ola
+$wiek.Ola
+## Wyświetlenie wszystkich kluczy
+$wiek.keys
+## Wyświetlenie wszystkich wartości
+$wiek.values
+## Zliczenie wszystkich par elementów
+$wiek.count
+## Sortowanie tablicy według kluczy
+$hash.GetEnumerator() | Sort-Object -Property key
+## Deklaracja uporządkowanej tablicy z elementami
+$wiek_ordered=[ordered]@{Adam=30;Zosia=25;Tomek=34}
+## Usuwanie elemetnu z kluczem Adam
+$wiek.remove(„Adam”)							
+## Zwraca 10 pierwszych serwisów
+Get-Service | select -first 10						
+## Zwraca 10 pierwszych serwisów posortowanych według statusu
+Get-Service | sort status -descending | select -first 10		
+## Zwraca 10 pierwszych serwisów posortowanych według statusu (malejąco) oraz nazwy (rosnąco)
+Get-Service | Sort-Object -Property @{Expression = "Status"; Descending = $True}, @{Expression = "DisplayName"; Descending = $False} | select -first 10
