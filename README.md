@@ -118,3 +118,39 @@ Get-Variables
 ## Ustawia atrybut danej zmiennej na ReadOnly (tylko do odczytu)
 Set-Variable nazwa_zmiennej –Option readonly			 
 
+# Tablice
+## Tworzy nową tablicę
+$dane = @()	
+## Tworzy nową tablicę i przypisuje elementy
+$dane = @('Jeden','Dwa','Trzy','Cztery')	
+## Tworzy nową tablicę i przypisuje elementy w kilku wierszach (przydatne w skryptach)
+$dane = @('Jeden'		
+    'Dwa'
+		'Trzy'	
+		'Cztery')
+## Tworzy nową tablicę i przypisuje elementy
+$dane = ‘Jeden’,‘Dwa’,‘Trzy’,‘Cztery’		
+## Tworzy nową tablicę i przypisuje elementy
+$dane = Write-Output Jeden Dwa Trzy Cztery				
+## Tworzy nową tablicę i przypisuje elementy od 1 do 10
+$liczby=1..10						
+## Zwraca typ danego obiektu (w tym przypadku tablicy)
+$dane.getType()			
+## Tworzy nową tablicę tylko dla elemnetów liczbowych (liczby całkowite)
+[int32[]]$liczby		
+## Zwraca typ danego obiektu (w tym przypadku tablicy)
+$liczby.getType()		
+## Wyświetla dany obiekt (w tym przypadku elementy tablicy)
+$liczby		
+## Wyświetla element tablicy o indeksie 0
+$liczby[0]							
+## Różne wariacje wyświetlania elmentów
+$liczby[0,2,3],$data[3,0,3],$data[1..3],$data[-1]			
+## Zwraca liczbę elementów tablicy
+$liczby.count						
+## Dodaje element do tablicy (jeżeli tablica jest odpowiedniego typu)
+$liczby.add(‘11’)			
+## Usuwa element tablicy (jeżeli tablica jest odpowiedniego typu)
+$liczby.Remove('1')  					
+## Tworzy tablicę typy ArrayList, do któej można dodawać i usuwać elementy
+[System.Collections.ArrayList]$liczby_zmienna=1..10			
