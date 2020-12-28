@@ -61,34 +61,58 @@ Import-Csv .\service.csv
 cat .\prefix.csv -First 10
 cat .\prefix.csv -Last 10
 
-#Wyświetla serwisy, wybiera tylko uruchomione i zapisuje do pliku
+## Wyświetla serwisy, wybiera tylko uruchomione i zapisuje do pliku
 Get-Service | Where-Object status -eq 'Running' | Out-File C:\Test\service.txt
 
-#Wyświetla serwisy, wybiera tylko uruchomione i zapisuje do pliku
+## Wyświetla serwisy, wybiera tylko uruchomione i zapisuje do pliku
 Get-Service | Where-Object status -eq 'Running' > C:\Test\service.txt
 
-#Wyświetla serwisy, wybiera tylko nie uruchomione i dopisuje do pliku
+## Wyświetla serwisy, wybiera tylko nie uruchomione i dopisuje do pliku
 Get-Service | Where-Object status -ne 'Running' >> C:\Test\service.txt
 
-#Tworzy plik i dopisuje działające procesy
+## Tworzy plik i dopisuje działające procesy
 Set-Content -Path C:\Test\pliczek.txt -Value (get-process)
 
-#Wczytuje plik
+## Wczytuje plik
 Get-Content c:\test\users.txt
 
-#Wczytuje wszystkie pliki txt, wybiera konkretne właściwości, sortuje według wielkości i zapisuje do pliku csv
+## Wczytuje wszystkie pliki txt, wybiera konkretne właściwości, sortuje według wielkości i zapisuje do pliku csv
 Get-ChildItem c:\Test -Filter *.txt | Select-Object Name, LastWriteTime,LastAccessTime,Length | Sort length -Descending | Export-Csv c:\Test\pliki.csv
 
 
-#Wczytuje wszystkie pliki txt, wybiera konkretne właściwości, sortuje według wielkości i zapisuje do pliku csv, zastępując separator ;
+## Wczytuje wszystkie pliki txt, wybiera konkretne właściwości, sortuje według wielkości i zapisuje do pliku csv, zastępując separator ;
 Get-ChildItem c:\Test -Filter *.txt | Select-Object Name, LastWriteTime,LastAccessTime,Length | Sort length -Descending | Export-Csv c:\Test\pliki.csv -Delimiter ';'
 
-#importuje dane 
+## importuje dane 
 Import-Csv C:\test\Dane.txt
 
-#Polecenie zbierające dane z serwisów i generujace raport w formie strony html
+## Polecenie zbierające dane z serwisów i generujace raport w formie strony html
 Get-Service | ? {$_.status -eq 'Running'} | select name,status | ConvertTo-Html -Title "Service Raport" -PreContent "<h1>Zestawienie servisow z komputera $($env:COMPUTERNAME)</h1>"  | Set-
 Content c:\test\raport.html
 
-#Polecenie zbierające dane z serwisów i generujace raport w formie strony html z formatowaniem css
+## Polecenie zbierające dane z serwisów i generujace raport w formie strony html z formatowaniem css
 Get-Service | ? {$_.status -eq 'Running'} | select name,status | ConvertTo-Html -Title "Service Raport" -PreContent "<h1>Zestawienie servisow z komputera $($env:COMPUTERNAME)</h1>" -CssUri C:\test\css1.css | Set-Content c:\test\raport.html
+
+# Zmienne
+
+## Zwraca listę cmdletów z rzeczownikiem Variable
+Get-Command -noun variable
+## Tworzy nową zmienną "liczba" o wartości 123
+New-Variable -Name “liczba” -value 123		
+## Tworzy zmienną a i przypisuje jej wartośc 1 (gdy zmienna a istnieje przypisujej jej nową wartość)
+$a=1	
+## Zwraca typ danego obiektu
+$a.getType()				
+## Tworzy zmienną name i przypisujej jej typ liczb całkowitych
+[int32]$name							
+# #Czyści wartość zmiennej MyVariable
+Clear-Variable -name MyVariable		
+## Czyści wartość zmiennej MyVariable
+$MyVariable = $null						
+## Usuwa zmienną MyVariable
+remove-variable -name MyVariable		
+## Wyświetla wszystkie zmienne
+Get-Variables						
+## Ustawia atrybut danej zmiennej na ReadOnly (tylko do odczytu)
+Set-Variable nazwa_zmiennej –Option readonly			 
+
