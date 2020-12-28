@@ -105,7 +105,7 @@ $a=1
 $a.getType()				
 ## Tworzy zmienną name i przypisujej jej typ liczb całkowitych
 [int32]$name							
-# #Czyści wartość zmiennej MyVariable
+## Czyści wartość zmiennej MyVariable
 Clear-Variable -name MyVariable		
 ## Czyści wartość zmiennej MyVariable
 $MyVariable = $null						
