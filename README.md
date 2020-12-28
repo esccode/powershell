@@ -94,6 +94,8 @@ Content c:\test\raport.html
 Get-Service | ? {$_.status -eq 'Running'} | select name,status | ConvertTo-Html -Title "Service Raport" -PreContent "<h1>Zestawienie servisow z komputera $($env:COMPUTERNAME)</h1>" -CssUri C:\test\css1.css | Set-Content c:\test\raport.html
 
 # Zmienne
+$procesy = Get-Process | select -First 5
+$procesy > procesy.txt;notepad.exe .\procesy.txt
 
 ## Zwraca listę cmdletów z rzeczownikiem Variable
 Get-Command -noun variable
