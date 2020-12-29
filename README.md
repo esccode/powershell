@@ -309,4 +309,14 @@ Get-Process | Measure-Object -Property VirtualMemorySize -Minimum -Maximum -Sum
 ## Wyświetla zawartośc pliku
 Get-Content C:\Test\Users.txt								
 ## Zlicza znaki, wiersze oraz słowa w pliku tekstowym
-Get-Content C:\Test\Users.txt | Measure-Object -Character -Line -Word			
+Get-Content C:\Test\Users.txt | Measure-Object -Character -Line -Word	
+
+# Out-GridView
+Get-Process | select -Property * | Out-GridView
+cat D:\data\P00000001-ALL.csv | Out-GridView
+
+## Wyświetla procesy w oknie Out-Gridview
+Get-Process | Out-GridView	
+## Wyświetla serwisy w oknie Out-Gridview
+Get-Service | Out-GridView				
+
