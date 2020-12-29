@@ -253,3 +253,15 @@ Get-Content -Path C:\test\Litery.txt | Select-Object -Unique
 Get-Content -Path C:\Test\Users.txt | Select-Object -Index 1
 ## Wyswietla zawartość pliku i pomija 5 pierwszych obiektów
 Get-Content -Path C:\Test\Users.txt | Select-Object -Skip 5					
+
+# Where-Object
+## Wyświetla tylko obikety spełniające dany warunek
+1..10 | Where-Object {$_ -gt 5}	
+## Wyświetla uruchomione serwisy
+Get-Service | ? {$_.status -eq 'Running'}			
+## Wyświetla uruchomione serwisy z nazwą na literę w
+Get-Service | ? {$_.status -eq 'Running' -and $_.name -like 'w*'}		
+## Wyświetla uruchomione serwisy
+Get-Service | ? status -eq ‘Running’						
+
+
