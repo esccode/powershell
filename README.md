@@ -198,3 +198,31 @@ Get-Service | select -first 10
 Get-Service | sort status -descending | select -first 10		
 ## Zwraca 10 pierwszych serwisów posortowanych według statusu (malejąco) oraz nazwy (rosnąco)
 Get-Service | Sort-Object -Property @{Expression = "Status"; Descending = $True}, @{Expression = "DisplayName"; Descending = $False} | select -first 10
+
+# Sort-Object
+## Zwraca elementy z katalogu C:\Test
+Get-ChildItem -Path C:\Test
+## Zwraca pliki z katalogu C:\Test i sortuje je według domyślnych ustawień
+Get-ChildItem -Path C:\Test | Sort-Object	
+
+## Zwraca pliki z katalogu C:\Test i sortuje je malejąco
+Get-ChildItem -Path C:\Test -File | Sort-Object -Descending
+## Zwraca pliki z katalogu C:\Test i sportuje je według właściwości - wielkość (długość)
+Get-ChildItem -Path C:\Test -File | Sort-Object -Property Length		
+## Zwraca pliki z katalogu C:\Test i sportuje je według właściwości - ostatni czas zapisu
+Get-ChildItem -Path C:\Test -File | Sort-Object -Property LastWriteTime -Descending	
+## Wyświetla zawartość pliku
+Get-Content -Path C:\Test\Users.txt	
+## Wyświetla zawartość pliku i sortuje zawartośc według domyślnych ustawień
+Get-Content -Path C:\Test\Users.txt | Sort-Object			
+## Wyświetla zawartość pliku i sortuje zawartośc według unikalności danych
+Get-Content -Path C:\Test\Users.txt | Sort-Object -Unique	
+## Wyświetla zawartość pliku i sortuje zawartośc według właściwości - wielkość (długość)
+Get-Content -Path C:\Test\Users.txt | Sort-Object -Property Length		
+## Wyświetla zawartość pliku
+Get-Content -Path C:\Test\Liczby.txt
+## Wyświetla zawartość pliku i sortuje zawartość według domyślnych ustawień 
+Get-Content -Path C:\Test\Liczby.txt | Sort-Object						
+## Wyświetla zawartość pliku i sortuje zawartość według domyślnych ustawień (obikety w potoku jako liczby całkowite)
+Get-Content -Path C:\Test\Liczby.txt | Sort-Object {[int]$_}					
+
