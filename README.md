@@ -298,6 +298,8 @@ Get-Process | group Company | Sort-Object Count -Descending
 
 # Measure-Object
 
+cat D:\data\household_power_consumption.txt | Measure-Object -Line -Word -Character
+
 ## Zlicza serwisy na komputerze
 Get-Service | Measure-Object								
 ## Zlicza procesy na koputerze
