@@ -266,4 +266,32 @@ Get-Service | ? status -eq ‘Running’
 ## Zwraca liste uzytkownikow spelniajacych warunek
 Get-LocalUser | ? name -like 'j*'
 
-
+# Format
+## Zwraca dane o konkretnym procesie
+Get-Process -Name notepad						
+## Zwraca dane o konkretnym procesie w formie tabeli
+Get-Process -name notepad | Format-Table				
+## Zwraca dane o konkretnym procesie w formie tabeli wyświetla tylko nazwę i identyfikator procesu
+Get-Process -name notepad | ft -Property Name, ID
+## Zwraca dane o konkretnym katalogu w tabeli z parametrem AutoSize (domyślne dopasowanie)
+Get-Item -Path c:\tmp | Format-Table -AutoSize				
+## Zwraca dane o procesach na literę W w formie tabeli z widokiem pogrupowanym ze względu na ważność
+Get-Process -Name w* | Format-Table -View Priority			
+## Zwraca dane o konkretnym procesie w formie listy
+Get-Process -name notepad | Format-List					
+## Zwraca dane o konkretnym procesie w formie listy, wyświetlając wszystkie właściwości
+Get-Process -Name notepad | Format-List -Property *			
+## Wyświetla wszystkie procesy w formie szerokiej tabeli
+Get-Process | Format-Wide						
+## Wyświetla elementy z danego katalogu w formie szerokiej tabeli z parametrem AutoSize
+Get-ChildItem | Fw -Property name –AutoSize				 
+## Wyświetla elementy z danego katalogu w formie szerokiej tabeli z 8 kolumnami
+Get-ChildItem | Format-Wide -Property name -Column 8			
+## Zwraca dane o konkretnym procesie w formie domyślnego widoku
+Get-Process -name notepad | Format-Custom				
+## Zwraca dane o konkretnym pliku w formacie domyślnego widoku
+Get-Item C:\Test\DDACLSys.log | Fc					
+## Zwraca dane o konkretnym pliku w formacie domyślnego widoku z ustawionym poziomem szczegółowości
+Get-Item C:\Test\DDACLSys.log | Fc -Depth 1				
+## Wyświeta procesy następnie sortuje je według producenta i zlicza
+Get-Process | group Company | Sort-Object Count -Descending		
