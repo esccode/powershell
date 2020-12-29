@@ -227,6 +227,12 @@ Get-Content -Path C:\Test\Liczby.txt | Sort-Object
 Get-Content -Path C:\Test\Liczby.txt | Sort-Object {[int]$_}					
 
 # Select-Object
+
+## 10 procesów wykorzystujacych najwiecej pamięci
+Get-Process | sort -Property WS -Descending | select -First 10
+## 10 procesów wykorzystujacych najwiecej procesora CPU
+Get-Process | sort -Property CPU -Descending | select -First 10
+
 ## Wyświetla zawartość katalogu C:\Test, w tym tylko Nazwę obiektów
 Get-ChildItem -Path C:\test | Select-Object -Property Name	
 ## Wyświetla zawartość katalogu C:\Test, w tym tylko Nazwę i ostatni czas dostępu obiektów
