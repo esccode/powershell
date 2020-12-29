@@ -295,3 +295,16 @@ Get-Item C:\Test\DDACLSys.log | Fc
 Get-Item C:\Test\DDACLSys.log | Fc -Depth 1				
 ## Wyświeta procesy następnie sortuje je według producenta i zlicza
 Get-Process | group Company | Sort-Object Count -Descending		
+
+# Measure-Object
+
+## Zlicza serwisy na komputerze
+Get-Service | Measure-Object								
+## Zlicza procesy na koputerze
+(Get-Process).count									
+## Zwraca wartość Min, Max i sumę virtualnej pamięci wykorzystywanej przez procesy na komputerze
+Get-Process | Measure-Object -Property VirtualMemorySize -Minimum -Maximum -Sum		
+## Wyświetla zawartośc pliku
+Get-Content C:\Test\Users.txt								
+## Zlicza znaki, wiersze oraz słowa w pliku tekstowym
+Get-Content C:\Test\Users.txt | Measure-Object -Character -Line -Word			
