@@ -262,6 +262,8 @@ Get-Service | ? {$_.status -eq 'Running'}
 ## Wyświetla uruchomione serwisy z nazwą na literę w
 Get-Service | ? {$_.status -eq 'Running' -and $_.name -like 'w*'}		
 ## Wyświetla uruchomione serwisy
-Get-Service | ? status -eq ‘Running’						
+Get-Service | ? status -eq ‘Running’	
+## Zwraca liste uzytkownikow spelniajacych warunek
+Get-LocalUser | ? name -like 'j*'
 
 
