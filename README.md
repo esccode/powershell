@@ -226,3 +226,24 @@ Get-Content -Path C:\Test\Liczby.txt | Sort-Object
 ## Wyświetla zawartość pliku i sortuje zawartość według domyślnych ustawień (obikety w potoku jako liczby całkowite)
 Get-Content -Path C:\Test\Liczby.txt | Sort-Object {[int]$_}					
 
+# Select-Object
+## Wyświetla zawartość katalogu C:\Test, w tym tylko Nazwę obiektów
+Get-ChildItem -Path C:\test | Select-Object -Property Name	
+## Wyświetla zawartość katalogu C:\Test, w tym tylko Nazwę i ostatni czas dostępu obiektów
+Get-ChildItem -Path C:\test | Select-Object -Property Name, LastAccessTime		
+## Wyświetla wszystkie właściwości danego pliku
+Get-ChildItem -Path C:\test\users.txt | Select-Object -Property *	
+## Wyświetla wszystkie właściwości danego pliku z wykluczeniem VersionInfo
+Get-ChildItem -Path C:\test\users.txt | Select-Object -Property * -ExcludeProperty VersionInfo	
+## Wyświetla procesy, sortuje według zajętości pamięci malejąco i wybiera 10 pierwszych
+Get-Process | Sort-Object -Property WS -Descending | Select-Object -First 10		
+## Wyświetla procesy, sortuje według zajętości pamięci malejąco i wybiera 10 ostatnich
+Get-Process | Sort-Object -Property WS -Descending | Select-Object -Last 10	
+## Wyswietla zawartość pliku
+Get-Content -Path C:\test\Litery.txt	
+## Wyswietla zawartość pliku i wybiera tylko obikety unikalne
+Get-Content -Path C:\test\Litery.txt | Select-Object -Unique	
+## Wyswietla zawartość pliku i wybiera tylko ten z indexem 1
+Get-Content -Path C:\Test\Users.txt | Select-Object -Index 1
+## Wyswietla zawartość pliku i pomija 5 pierwszych obiektów
+Get-Content -Path C:\Test\Users.txt | Select-Object -Skip 5					
