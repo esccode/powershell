@@ -320,3 +320,28 @@ Get-Process | Out-GridView
 ## Wyświetla serwisy w oknie Out-Gridview
 Get-Service | Out-GridView				
 
+# Instrukcja-If
+
+<#
+if (<wyrażenie warunkowe 1>)
+
+{<lista instrukcji 1>}
+
+[elseif (<wyrażenie warunkowe 2>)
+
+{<lista instrukcji 2>}]
+
+[else
+
+{<lista instrukcji 3>}]
+
+#>
+
+$a = Read-Host 'Proszę podaj liczbę'
+
+if($a -gt 4) {Write-Host "Liczba $a jest większa od 4"}
+
+elseif($a -eq 4) {Write-Host "Liczba $a jest równa 4"} 
+
+else {Write-Host "Liczba $a jest mniejsza od 4"}
+
