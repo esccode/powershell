@@ -343,3 +343,59 @@ if (Test-Path $plik)
 { Get-Content $plik}
 else
 {Write-Host "Plik nieistnieje"}
+
+# Instrukcja Switch
+
+<#
+Switch (<wartość testowa>)
+{
+<warunek> {<lista instrukcji 1>}
+<warunek> {<lista instrukcji 2>}
+<warunek> {<lista instrukcji 3>}
+Default {<lista instrukcji 4>}
+} 
+#>
+
+$a=Read-Host 'Podaj liczbę'
+#a=(2,4,7)
+Switch($a)
+{
+1 {'Wpisano jeden'}
+2 {'Wpisano dwa'}
+3 {'Wpisano trzy'}
+1 {'Występuję ponownie'}
+4 {'Wpisano cztery'}
+Default {'Wpisano liczbę inną niż jeden, dwa, trzy i cztery'}
+}
+
+
+function Moje_Menu
+{
+    param (
+        [string]$Title = 'PRZYKŁAD MENU'
+    )
+    Clear-Host
+    Write-Host "================ $Title ================"
+    
+    Write-Host "1: Pokaż użytkowników."
+    Write-Host "2: Pokaż dziennik zdarzeń."
+    Write-Host "3: Archiwizuj dziennik zdarzeń."
+    Write-Host "Q: Wyjście."
+    Write-Host "==============================================="
+}
+
+do
+ {
+     Moje_Menu
+     $selection = Read-Host "Twój wybór"
+     switch ($selection)
+     {
+         '1' { 'Wybrano 1... Przygotowanie listy uzytkowników....'} 
+         '2' { 'Wybrano 2... Przygotowanie dziennika zdarzeń...'  } 
+         '3' { 'Wybrano 3... Archiwizacja dziennika zdarzeń...'   }
+         'q' { 'Wybrano q... Nastąpi wyjście z programu...'   }
+         Default {'Błąd... Proszę wybrać jeszcze raz...'}
+     }
+     pause
+ }
+ until ($selection -eq 'q')
