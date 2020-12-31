@@ -404,3 +404,54 @@ do
      pause
  }
  until ($selection -eq 'q')
+
+# Pętla do until/while
+
+<#
+     do {<lista poleceń>} until (<warunek>) 
+#>
+
+$i=0
+$tab=1..5
+do {
+$tab[$i]++
+$tab[$i]
+$i++}
+until($i -eq 5)
+
+<#
+     do {<lista poleceń>} while (<warunek>) 
+#>
+
+$i=0
+$tab=1..5
+do {
+$tab[$i]++
+$tab[$i]
+$i++}
+while($i -lt 5)
+
+$i = 0 
+$ip_addr = ('wp.pl','onet.pl','google.pl','facebook.pl')
+do { 
+Test-NetConnection $ip_addr[$i] 
+$i++ 
+} while ($i -lt 4)
+
+<#
+      while (<warunek>) {<lista poleceń>}
+#>
+
+$a=0
+While($a -lt 5) {
+$a
+$a++
+}
+
+$pass_length=9
+$pass_l=0
+while($pass_l -lt $pass_length) {
+$pass = Read-Host 'Podaj swoje hasło' -AsSecureString
+$pass_l=$pass.Length
+} 
+ 'Hasło zaakceptowane'
