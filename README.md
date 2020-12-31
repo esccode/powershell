@@ -455,3 +455,24 @@ $pass = Read-Host 'Podaj swoje hasło' -AsSecureString
 $pass_l=$pass.Length
 } 
  'Hasło zaakceptowane'
+ 
+ # Pętla for
+ 
+ <#
+for (<Zmienna inicjująca>; <Warunek>; <Przyrost>)
+{
+    <Polecenia>
+}
+#>
+
+$a=0
+for($a=23164;$a -lt 23185;$a++)
+{
+$a
+}
+
+
+for($a=1;$a -le 255;$a++)
+{
+Test-NetConnection -ComputerName 192.168.0.$a 
+}
