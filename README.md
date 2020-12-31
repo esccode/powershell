@@ -476,3 +476,37 @@ for($a=1;$a -le 255;$a++)
 {
 Test-NetConnection -ComputerName 192.168.0.$a 
 }
+
+# Pętla forEach
+
+<#
+        ForEach-Object {$_ blok poleceń }
+#>
+
+$ip_addr = ('wp.pl','onet.pl','google.pl','facebook.pl')
+$ip_addr | foreach {Test-NetConnection -ComputerName $_}
+
+
+<#
+foreach (<zmienna iteracyjna> in <tablica>) { blok poleceń }
+#>
+
+$ip_addr = ('wp.pl','onet.pl','google.pl','facebook.pl')
+foreach ($i in $ip_addr)
+{
+Test-NetConnection -ComputerName $i
+}
+
+
+<#
+    <tablica>.foreach({<blok poleceń>})
+#>
+
+$ip_addr = ('wp.pl','onet.pl','google.pl','facebook.pl')
+$ip_addr.ForEach({Test-NetConnection -ComputerName $_})
+
+
+$tab=1..10000
+Measure-Command { foreach($i in $tab) {$i} } |select -Property Milliseconds
+Measure-Command { $tab | ForEach-Object {$_} } | select -Property Milliseconds
+Measure-Command { $tab.foreach({$_}) } | select -Property Milliseconds
