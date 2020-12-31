@@ -1,5 +1,10 @@
 # powershell
 powershell scripts
+
+## Get-ExecutionPolicy
+Get-ExecutionPolicy -List
+Unblock-File -Path .\Instrukcja-switch2.ps1
+
 # skrót do szablonów na powershell ise
 ctrl j
 Get-Service 'name' > service.txt
