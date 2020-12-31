@@ -324,24 +324,22 @@ Get-Service | Out-GridView
 
 <#
 if (<wyrażenie warunkowe 1>)
-
 {<lista instrukcji 1>}
-
 [elseif (<wyrażenie warunkowe 2>)
-
 {<lista instrukcji 2>}]
-
 [else
-
 {<lista instrukcji 3>}]
-
 #>
 
 $a = Read-Host 'Proszę podaj liczbę'
-
 if($a -gt 4) {Write-Host "Liczba $a jest większa od 4"}
-
 elseif($a -eq 4) {Write-Host "Liczba $a jest równa 4"} 
-
 else {Write-Host "Liczba $a jest mniejsza od 4"}
 
+
+
+$plik = Read-Host ‘Podaj ścieżkę’
+if (Test-Path $plik) 
+{ Get-Content $plik}
+else
+{Write-Host "Plik nieistnieje"}
